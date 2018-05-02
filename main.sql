@@ -15,3 +15,23 @@ on Customers.customerid = orders.customerid
 group by customername
 
 ----------------------------------------------------------------------------------------------------------------------------------
+
+Write a query to fetch employee details whose salary is greater than 19000?
+___________________________________________________________________________________________________________________________________
+select customername, salary
+from Customers
+where customerid in
+(select customerid 
+from Customers
+where salary>19000)
+----------------------------------------------------------------------------------------------------------------------------------
+
+Write a query to find 4th highest salary ?
+
+select customername, salary
+from Customers c1
+where 4 = 
+(select count(salary)
+ from Customers c2
+ where c2.salary>=c1.salary
+)
